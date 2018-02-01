@@ -1,0 +1,26 @@
+{
+  "name": "ody-transpiler",
+  "version": "1.0.0",
+  "description": "转换器",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-generator": "^6.26.0",
+    "babylon": "^6.18.0",
+    "ody-html-tree": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/babel-core": "^6.25.3",
+    "@types/babel-generator": "^6.25.1",
+    "@types/babel-types": "^7.0.0",
+    "@types/babylon": "^6.16.2",
+    "@types/jasmine": "^2.8.2",
+    "jasmine": "^2.8.0"
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div :title="item.title" v-for="(item,i) in items">
+    <div v-if="item.tt==='234'" class="p b" :class="[a,c+'xx',{'dd-1':i>0,'dd-2':i<8}]">
+        {{item.name}}
+    </div>
+    <div v-else-if="item.tt===456" class="a b" :class="c">
+        {{item.nickname}}
+    </div>
+    <div id="xxx" v-else :class="{[a+'fff']:xx===3,['lala']:lala>234}">
+        {{item.nickname}}
+    </div>
+    <section v-bind="{attr1:item.attr1,attr2:item.attr2,[item.attr3+'hello']:item.attr3}" v-switch="item.s">
+      <p v-switch-case="1">天空</p>
+      <p v-switch-case="2">大地</p>
+      <p v-switch-default :class="{a:i!==j}">人类</p>
+    </section>
+  </div>
+</body>
+</html>
