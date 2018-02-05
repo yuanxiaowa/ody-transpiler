@@ -7,7 +7,7 @@ import {
   parse
 } from 'babylon'
 import generate from 'babel-generator'
-parse('', {})
+
 export function getNode(expr: string) {
   return parseExpression(expr)
 }

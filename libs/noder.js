@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const babylon_1 = require("babylon");
 const babel_generator_1 = require("babel-generator");
-babylon_1.parse('', {});
 function getNode(expr) {
     return babylon_1.parseExpression(expr);
 }

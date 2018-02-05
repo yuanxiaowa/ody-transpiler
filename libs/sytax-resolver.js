@@ -14,7 +14,7 @@ class BaseResolver {
         this.keyAttr = 'v-attr';
         this.keyBind = 'v-bind';
         this.keyModel = 'v-model';
-        this.rInterplation = /\{\{[^{](.*?)\}\}/g;
+        this.rInterplation = /\{\{([^{].*?)\}\}/g;
     }
     hasInterplation(str) {
         return this.rInterplation.test(str);

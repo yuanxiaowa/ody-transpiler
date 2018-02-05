@@ -11,7 +11,7 @@ export class BaseResolver {
   keyAttr = 'v-attr'
   keyBind = 'v-bind'
   keyModel = 'v-model'
-  rInterplation = /\{\{[^{](.*?)\}\}/g
+  rInterplation = /\{\{([^{].*?)\}\}/g
   hasInterplation(str: string) {
     return this.rInterplation.test(str)
   }
