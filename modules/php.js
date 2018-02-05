@@ -3,6 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("../index");
 const index_2 = require("ody-html-tree/index");
 class PhpTranspiler extends index_1.BaseTranspiler {
+    constructor() {
+        super(...arguments);
+        this.filterMapping = {
+            json: 'json_encode'
+        };
+    }
     getIdentifier(name) {
         if (/^([A-Z_]+$)/.test(name)) {
             return name;

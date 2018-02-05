@@ -2,7 +2,7 @@ import { BaseTranspiler } from "../index";
 import { ElementNode, TextNode } from "ody-html-tree/index";
 
 export default class PhpTranspiler extends BaseTranspiler {
-  filterMapping: {
+  filterMapping = {
     json: 'json_encode'
   }
   getIdentifier(name: string) {
