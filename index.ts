@@ -4,8 +4,7 @@ import {
 import {
   Node,
   ElementNode,
-  TextNode,
-  CommentNode
+  TextNode
 } from 'ody-html-tree'
 import { BaseResolver } from './libs/sytax-resolver';
 import { getNode, getNodeString } from './libs/noder';
@@ -35,9 +34,9 @@ export default class Transpiler {
    */
   traverse(nodes: Node[]) {
     nodes.forEach(node => {
-      if (node instanceof ElementNode) {
+      if (node.isElement()) {
         this.handleElementNode(node)
-      } else if (node instanceof TextNode) {
+      } else if (node.isText()) {
         this.handleTextNode(node);
       }
     })
@@ -113,7 +112,7 @@ export default class Transpiler {
     var i = 0;
     var name = this.handleSwitch(node, expr)
     eles.forEach(node => {
-      if (node instanceof ElementNode) {
+      if (node.isElement()) {
         if (node.hasAttribute(dr.keySwitchCase)) {
           let expr = node.getAttribute(this.resolver.keySwitchCase)
           node.removeAttribute(this.resolver.keySwitchCase)
@@ -124,8 +123,8 @@ export default class Transpiler {
         } else {
           warn('switch孩子节点上缺少指令');
         }
-      } else if (!(node instanceof CommentNode)) {
-        if (node instanceof TextNode) {
+      } else if (!(node.isComment())) {
+        if (node.isText()) {
           if (node.text.trim().length > 0) {
             warn('switch里只能嵌套元素节点');
           }

@@ -9,7 +9,12 @@ import {
 import generate from 'babel-generator'
 
 export function getNode(expr: string) {
-  return parseExpression(expr)
+  try {
+    return parseExpression(expr)
+  } catch (e) {
+    e.expr = expr
+    throw e
+  }
 }
 
 export { parse } from 'babylon'

@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const babel_core_1 = require("babel-core");
-const ody_html_tree_1 = require("ody-html-tree");
 const sytax_resolver_1 = require("./libs/sytax-resolver");
 const noder_1 = require("./libs/noder");
 const util_1 = require("./util");
@@ -28,10 +27,10 @@ class Transpiler {
      */
     traverse(nodes) {
         nodes.forEach(node => {
-            if (node instanceof ody_html_tree_1.ElementNode) {
+            if (node.isElement()) {
                 this.handleElementNode(node);
             }
-            else if (node instanceof ody_html_tree_1.TextNode) {
+            else if (node.isText()) {
                 this.handleTextNode(node);
             }
         });
@@ -103,7 +102,7 @@ class Transpiler {
         var i = 0;
         var name = this.handleSwitch(node, expr);
         eles.forEach(node => {
-            if (node instanceof ody_html_tree_1.ElementNode) {
+            if (node.isElement()) {
                 if (node.hasAttribute(dr.keySwitchCase)) {
                     let expr = node.getAttribute(this.resolver.keySwitchCase);
                     node.removeAttribute(this.resolver.keySwitchCase);
@@ -117,8 +116,8 @@ class Transpiler {
                     util_1.warn('switch孩子节点上缺少指令');
                 }
             }
-            else if (!(node instanceof ody_html_tree_1.CommentNode)) {
-                if (node instanceof ody_html_tree_1.TextNode) {
+            else if (!(node.isComment())) {
+                if (node.isText()) {
                     if (node.text.trim().length > 0) {
                         util_1.warn('switch里只能嵌套元素节点');
                     }
