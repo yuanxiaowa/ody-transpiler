@@ -9,7 +9,7 @@ class JsTranspiler extends index_1.BaseTranspiler {
         this.i = 0;
         this.vars = [];
         this.filterMapping = {
-            json: 'JSON.strigify'
+            json: 'JSON.stringify'
         };
     }
     getIdentifier(name) {

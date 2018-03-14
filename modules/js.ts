@@ -5,7 +5,7 @@ export default class JsTranspiler extends BaseTranspiler {
   i = 0
   vars: string[] = []
   filterMapping = {
-    json: 'JSON.strigify'
+    json: 'JSON.stringify'
   }
   constructor(public ctx?: string) {
     super()
