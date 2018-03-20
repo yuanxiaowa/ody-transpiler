@@ -14,9 +14,9 @@ class JsTranspiler extends index_1.BaseTranspiler {
     }
     getIdentifier(name) {
         if (this.ctx && !/^(global|this|window)$/.test(name)) {
-            if (/^([A-Z_]+)$/.test(name)) {
-                return `window["${name}"]`;
-            }
+            /* if (/^([A-Z_]+)$/.test(name)) {
+              return `window["${name}"]`
+            } */
             let hasVar = this.vars.some(v => v === name);
             if (hasVar) {
                 return name;
@@ -106,7 +106,7 @@ class JsTranspiler extends index_1.BaseTranspiler {
         return '`+' + expr + '+`';
     }
     getConditionBlock(expr, block) {
-        block = block.endsWith('+`') ? block.substring(0, block.length - 2) : '`';
+        block = (block.endsWith('+`') ? block.substring(0, block.length - 2) : block) + '`';
         return 'if(' + expr + '){__html+=` ' + block + '}';
     }
     getConditions(exprs) {

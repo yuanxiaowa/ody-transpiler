@@ -1,6 +1,6 @@
 {
   "name": "ody-transpiler",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "转换器",
   "main": "index.js",
   "scripts": {
